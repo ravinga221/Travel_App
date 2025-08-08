@@ -1,43 +1,45 @@
-.hello{
+.hello {
     text-decoration: none;
+    color: inherit;
 }
 
-.header{
+.header {
     width: 100%;
     height: 80px;
     line-height: 80px;
 }
 
-.logo img{
+.logo img {
     width: 30%;
 }
 
-.menu{
-    margin-bottom:0;
+.menu {
+    margin-bottom: 0;
 }
 
-.nav_item a{
+.nav_item a {
     text-decoration: none;
     color: var(--heading-color);
     font-weight: 500;
     font-size: 1.1rem;
 }
 
-.nav_item a:hover{
+.nav_item a:hover {
     color: inherit;
 }
 
-.nav_item a.active_link{
+.nav_item a.active_link {
     color: var(--secondary-color);
 }
 
-.mobile_menu{
+.mobile_menu {
     font-size: 1.3rem;
     color: var(--heading-color);
     display: none;
+    cursor: pointer;
 }
 
-.sticky_header{
+.sticky_header {
     width: 100%;
     height: 80px;
     line-height: 80px;
@@ -48,3 +50,127 @@
     box-shadow: 3px 3px 8px -3px #ddd;
     z-index: 999;
 }
+
+.nav_wrapper {
+    width: 100%;
+}
+
+/* Media query for tablets and mobile devices */
+@media only screen and (max-width: 992px) {
+    .logo img {
+        width: 20%;
+    }
+
+    /* Hide navigation by default on mobile */
+    .navigation {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Show navigation when menu is active */
+    .navigation.show_menu {
+        display: flex;
+        opacity: 1;
+    }
+
+    .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 75%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.5;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 9999;
+        padding: 40px 30px;
+        box-sizing: border-box;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    /* Animate menu when shown */
+    .navigation.show_menu .menu {
+        transform: translateX(0);
+    }
+
+    /* Show mobile menu button */
+    .mobile_menu {
+        display: block;
+        z-index: 10000;
+    }
+
+    /* Mobile nav items styling */
+    .nav_item {
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .nav_item a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+    }
+
+    /* Hide desktop nav buttons on mobile */
+    .nav_btns {
+        display: none !important;
+    }
+
+    /* Adjust nav_right for mobile */
+    .nav_right {
+        align-items: center !important;
+    }
+}
+
+/* Additional media query for smaller phones */
+@media only screen and (max-width: 576px) {
+    .logo img {
+        width: 25%;
+    }
+
+    .menu {
+        width: 85%;
+        padding: 40px 20px;
+    }
+
+    .nav_item a {
+        font-size: 1.1rem;
+    }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (max-width: 768px) {
+    .logo img {
+        width: 22%;
+    }
+
+    .menu {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 768px)
+{
+    .logo img{
+        width: 45%;
+    }
+
+    .menu{
+        width:calc(100%-50%);
+    }
+}
+

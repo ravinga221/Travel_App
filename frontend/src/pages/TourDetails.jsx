@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState ,useContext} from 'react';
 import '../shared/tour-details.css';
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
@@ -7,8 +7,9 @@ import avatar from '../assets/images/avatar.jpg';
 import Booking from '../components/Booking/Booking';
 import Newsletter from './../shared/Newsletter';
 import useFetch from './../hooks/useFetch';
+import {AuthContext} from './../context/AuthContex';
 
-// Add BASE_URL constant (adjust the URL to match your backend)
+
 const BASE_URL = 'http://localhost:4000/api/v1';
 
 const TourDetails = () => {
@@ -16,10 +17,10 @@ const TourDetails = () => {
     const reviewMsgRef = useRef('');
     const [tourRating, setTourRating] = useState(null);
 
-    // Fetch data from database
+    const {user} = useContext(AuthContext);    
     const { data: tour, loading, error } = useFetch(`${BASE_URL}/tours/${id}`);
 
-    // Destructure properties from tour object (with default empty object)
+    
     const { 
         photo, 
         title, 
@@ -38,10 +39,38 @@ const TourDetails = () => {
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
 
     // Submit request to the server
-    const submitHandler = (e) => {
+    const submitHandler = async e => {
         e.preventDefault();
         const reviewText = reviewMsgRef.current.value;
-        alert(`${reviewText}, ${tourRating}`);
+        
+        try{
+            if(!user || user === undefined || user === null){
+            alert(!'please sign in')
+        }
+            const reviwObj = {
+                username:user?.username,
+                reviewText,
+                rating:tourRating
+            }
+            const res = await fetch(`${BASE_URL}/review/${id}`,{
+                method:'post',
+                headers :{
+                    'content-type':'application/json'
+                },
+                credentials:'include',
+                body:JSON.stringify(reviwObj)
+            })
+
+            const result = await  res.json()
+            if(!res.ok){
+                return alert(result.message);
+            }
+            alert(result.message);
+
+        }catch(err)
+        {
+            alert(err.message);
+        }
     };
 
     useEffect(() => {
@@ -119,7 +148,7 @@ const TourDetails = () => {
                                                     placeholder='Write a review'
                                                     required 
                                                 />
-                                                <button className='btn primary_btn text-white' type='submit'>
+                                                <button className='btn primary__btn text-white' type='submit'>
                                                     Submit
                                                 </button>
                                             </div>
@@ -133,15 +162,15 @@ const TourDetails = () => {
                                                     <div className="w-100">
                                                         <div className="d-flex align-items-center justify-content-between">
                                                             <div>
-                                                                <h5>{review.username || 'ravi'}</h5>
-                                                                <p>{new Date(review.createdAt || '07-11-2025').toLocaleDateString("en-US", options)}</p>
+                                                                <h5>{review.username}</h5>
+                                                                <p>{new Date(review.createdAt).toLocaleDateString("en-US", options)}</p>
 
                                                                 <div>
                                                                     <span className='d-flex align-items-center'>
                                                                         {review.rating}<i className="ri-star-s-fill"></i>
                                                                     </span>
                                                                 </div>
-                                                                <h6>{review.reviewText || 'Amazing tour!'}</h6>
+                                                                <h6>{review.reviewText}</h6>
                                                             </div>
                                                         </div>
                                                     </div>
