@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../shared/tour-details.css';
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-
 import calculateAvgRating from '../utils/avgRating';
 import avatar from '../assets/images/avatar.jpg';
 import Booking from '../components/Booking/Booking';
@@ -47,12 +46,18 @@ const TourDetails = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [tour]);
 
     return (
         <>
             <section>
                 <Container>
+                    {
+                      loading && <h4 className="text-center pt-5">Loading..............</h4>
+                    }
+                     {
+                      error && <h4 className="text-center pt-5">{error}</h4>
+                    }
                     {!loading && !error && (
                         <Row>
                             <Col lg='8'>

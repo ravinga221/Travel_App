@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route, Navigate} from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import Home from './../pages/Home';
 import Tours from './../pages/Tours';
@@ -10,18 +10,18 @@ import SearchResultList from './../pages/SearchResultList';
 import ThankYou from '../pages/ThankYou';
 
 const Routers = () => {
-  return (
-    <Routes>
-        <Route path='/' element={<Navigate to='/home'/>} />
-        <Route path='/home' element={<Home/>} />
-        <Route path='/tour' element={<Tours/>} />
-        <Route path='/tours/:id' element={<TourDetails/>} />
-        <Route path='/Login' element={<Login/>} />
-        <Route path='/register' element={<Register/>} />
-        <Route path='/thank-you' element={<ThankYou/>} />
-        <Route path='/tours/search' element={<SearchResultList/>} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path='/' element={<Navigate to='/home' />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/tour' element={<Tours />} />
+            <Route path='/tours/:id' element={<TourDetails />} />
+            <Route path='/login' element={<Login />} /> {/* Fixed: /Login → /login for consistency */}
+            <Route path='/register' element={<Register />} />
+            <Route path='/thank-you' element={<ThankYou />} />
+            <Route path='/tours/search' element={<SearchResultList />} />
+        </Routes>
+    );
 };
 
 export default Routers;

@@ -1,9 +1,11 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect,useContext} from 'react';
 import { Container, Button, Row} from 'reactstrap'
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link ,useNavigate} from 'react-router-dom';
 import './header.css';
 
 import logo from '../../assets/images/logo.png';
+import {AuthContext} from './../../context/AuthContex';
+
 
 const nav_links = [
   {
@@ -23,6 +25,13 @@ const nav_links = [
 const Header = () => {
 
   const HeaderRef = useRef(null)
+  const navigate = useNavigate();
+  const {user,dispatch} = useContext(AuthContext)
+
+  const logout = () => {
+    dispatch({type:'LOGOUT'})
+    navigate('/');
+  }
 
   const stickyHeaderFunc =() => {
     window.addEventListener('scroll', () =>{
@@ -69,8 +78,17 @@ const Header = () => {
             {/* ===========menu end=========== */}
             <div className="nav_right d-flex align-item-center gap-4"> 
             <div className="nav_btns d-flex align-item-center gap-4">
-              <Button className="btn secondary__btn"><Link className='hello' to='/login'>Login</Link></Button>
-              <Button className="btn primary__btn"><Link to='/register'>Register</Link></Button>
+
+              {
+                user? <>
+                 <h5 className='mb-0'>{user.username}</h5>
+                 <button className='btn btn-dark' onClick={logout}>Logout</button>
+                </> :  <>
+                 <Button className="btn secondary__btn"><Link className='hello' to='/login'>Login</Link></Button>
+                 <Button className="btn primary__btn"><Link to='/register'>Register</Link></Button>
+                </>
+              }
+              
             </div>
             <span className="mobile_menu">
               <i class="ri-menu-line"></i>
