@@ -1,8 +1,9 @@
 import React from 'react'
 import Slider from 'react-slick'
-import ava01 from '../../assets/images/ava-1.jpg'
-import ava02 from '../../assets/images/ava-2.jpg'
-import ava03 from '../../assets/images/ava-3.jpg'
+import './Testimonials .css' // Import the custom CSS file
+import ava01 from '../../assets/images/ava-1.jpeg'
+import ava02 from '../../assets/images/ava-2.jpeg'
+import ava03 from '../../assets/images/ava-3.jpeg'
 
 const Testimonials = () => {
 
@@ -36,67 +37,69 @@ const Testimonials = () => {
     }
 
   return (
-    <Slider {...settings}>
-        <div className="testimonial py-4 px-3">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
-                aliquam doloribus dolores accusantium animi laboriosam quae totam 
-                facilis quas deserunt temporibus quidem?</p>
+    <div className="testimonials-slider">
+        <Slider {...settings}>
+            <div className="testimonial py-4 px-3 testimonial-custom">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
+                    aliquam doloribus dolores accusantium animi laboriosam quae totam 
+                    facilis quas deserunt temporibus quidem?</p>
 
-                <div className="d-flex align-items-center gap-4 mt-3">
-                    <img src={ava01} alt='' className='w-25 h-25 rounded-2' />
-                    <div>
-                        <h6 className='mb-0 mt-3'>John Doe</h6>
-                        <p>Customer</p>
+                    <div className="d-flex align-items-center gap-4 mt-3 customer-info">
+                        <img src={ava01} alt='' className='w-25 h-25 rounded-2' />
+                        <div>
+                            <h6 className='mb-0 mt-3 customer-name'>John Doe</h6>
+                            <p className='customer-role'>Customer</p>
+                        </div>
                     </div>
-                </div>
-        </div>
+            </div>
 
-        <div className="testimonial py-4 px-3">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
-                aliquam doloribus dolores accusantium animi laboriosam quae totam 
-                facilis quas deserunt temporibus quidem?</p>
+            <div className="testimonial py-4 px-3 testimonial-custom">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
+                    aliquam doloribus dolores accusantium animi laboriosam quae totam 
+                    facilis quas deserunt temporibus quidem?</p>
 
-                <div className="d-flex align-items-center gap-4 mt-3">
-                    <img src={ava02} alt='' className='w-25 h-25 rounded-2' />
-                    <div>
-                        <h6 className='mb-0 mt-3'>Lia Franklin</h6>
-                        <p>Customer</p>
+                    <div className="d-flex align-items-center gap-4 mt-3 customer-info">
+                        <img src={ava02} alt='' className='w-25 h-25 rounded-2' />
+                        <div>
+                            <h6 className='mb-0 mt-3 customer-name'>Lia Franklin</h6>
+                            <p className='customer-role'>Customer</p>
+                        </div>
                     </div>
-                </div>
-        </div>
+            </div>
 
-        <div className="testimonial py-4 px-3">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
-                aliquam doloribus dolores accusantium animi laboriosam quae totam 
-                facilis quas deserunt temporibus quidem?</p>
+            <div className="testimonial py-4 px-3 testimonial-custom">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
+                    aliquam doloribus dolores accusantium animi laboriosam quae totam 
+                    facilis quas deserunt temporibus quidem?</p>
 
-                <div className="d-flex align-items-center gap-4 mt-3">
-                    <img src={ava03} alt='' className='w-25 h-25 rounded-2' />
-                    <div>
-                        <h6 className='mb-0 mt-3'>John Doe</h6>
-                        <p>Customer</p>
+                    <div className="d-flex align-items-center gap-4 mt-3 customer-info">
+                        <img src={ava03} alt='' className='w-25 h-25 rounded-2' />
+                        <div>
+                            <h6 className='mb-0 mt-3 customer-name'>shana Doe</h6>
+                            <p className='customer-role'>Customer</p>
+                        </div>
                     </div>
-                </div>
-        </div>
+            </div>
 
-        <div className="testimonial py-4 px-3">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
-                aliquam doloribus dolores accusantium animi laboriosam quae totam 
-                facilis quas deserunt temporibus quidem?</p>
+            <div className="testimonial py-4 px-3 testimonial-custom">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Voluptas rerum odio dolores veniam odit quia! Quibusdam, magnam, 
+                    aliquam doloribus dolores accusantium animi laboriosam quae totam 
+                    facilis quas deserunt temporibus quidem?</p>
 
-                <div className="d-flex align-items-center gap-4 mt-3">
-                    <img src={ava02} alt='' className='w-25 h-25 rounded-2' />
-                    <div>
-                        <h6 className='mb-0 mt-3'>Lia Franklin</h6>
-                        <p>Customer</p>
+                    <div className="d-flex align-items-center gap-4 mt-3 customer-info">
+                        <img src={ava02} alt='' className='w-25 h-25 rounded-2' />
+                        <div>
+                            <h6 className='mb-0 mt-3 customer-name'>Lia Franklin</h6>
+                            <p className='customer-role'>Customer</p>
+                        </div>
                     </div>
-                </div>
-        </div>
-    </Slider>
+            </div>
+        </Slider>
+    </div>
   )
 }
 

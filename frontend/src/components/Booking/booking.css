@@ -4,6 +4,7 @@
     border: 1px solid rgb(229, 231, 235);
     position: sticky;
     top: 80px;
+    background-color: #d9d9d9;
 }
 
 .booking_top h3{
@@ -29,11 +30,17 @@
 
 .booking_top{
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgb(229, 231, 235);
+    border-bottom: 1px solid rgb(12, 12, 12);
+}
+
+.booking_info-form input::placeholder {
+    color: white;
+    opacity: 1; 
 }
 
 .booking_form{
     padding-top: 2rem;
+    
 }
 
 .booking_form h5{
@@ -44,10 +51,17 @@
     width: 100%;
     padding: 0.5rem;
     border-radius: 0.5em; 
-    color: var(--heading-color);
+    color: white;
     font-size: 1rem;
-     border: none ;
+    border: none ;
     border-bottom: 1px solid rgb(229, 231, 235) ;
+    background-color: #5B5858;
+    
+}
+
+.booking_info-form{
+    background-color: #5B5858;
+    color: white;
 }
 
 .booking_form input:focus{
@@ -59,10 +73,13 @@
     border: 1px solid rgb(229, 231, 235);
 }
 
+
+
 .booking_bottom li{
     display: flex;
     align-items: center;
     justify-content: space-between;
+     background-color: #d9d9d9;
 }
 
 .booking_bottom li h5,

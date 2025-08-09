@@ -8,6 +8,7 @@
   --text-color: #6e7074;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
+  --bg-color: #A8E3F4;
 }
 
 * {
@@ -16,8 +17,14 @@
   box-sizing: border-box;
 }
 
+html, body, #root {
+  background-color: var(--bg-color) !important;
+  min-height: 100vh;
+}
+
 body {
   font-family: var(--font-name);
+  background-color: var(--bg-color) !important;
 }
 
 section {

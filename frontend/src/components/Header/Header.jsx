@@ -32,6 +32,11 @@ const Header = () => {
     navigate('/');
   }
 
+  // Function to handle logo click
+  const handleLogoClick = () => {
+    navigate('/');
+  }
+
   const stickyHeaderFunc = () => {
     const handleScroll = () => {
       if (HeaderRef.current) {
@@ -71,7 +76,7 @@ const Header = () => {
         <Row>
           <div className="nav_wrapper d-flex align-items-center justify-content-between">
             {/* ===========logo=========== */}
-            <div className='logo'>
+            <div className='logo' onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
               <img src={logo} alt='Logo' />
             </div>
             {/* ===========logo end=========== */}

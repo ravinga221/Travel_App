@@ -3,6 +3,11 @@
     height: 2.3rem;
 }
 
+.highlight{
+    color: var(--primary-color);
+}
+
+
 .hero__content h1{
     font-size: 3.2rem;
     font-weight: 600;

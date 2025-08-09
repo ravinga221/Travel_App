@@ -1,0 +1,106 @@
+/* Testimonials Custom Styles */
+
+.testimonials-slider {
+    padding: 0 10px; /* Add padding to container for gap */
+}
+
+.testimonials-slider .slick-slide {
+    padding: 0 10px; /* Create consistent gap between slides */
+}
+
+.testimonials-slider .slick-list {
+    margin: 0 -10px; /* Negative margin to offset padding */
+}
+
+.testimonial-custom {
+    background-color: #D9D9D9 !important;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 280px; /* Fixed height for all cards */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-custom p {
+    margin-bottom: 1rem;
+    color: #333;
+    line-height: 1.6;
+    flex-grow: 1; /* Allow text to expand */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Limit to 6 lines */
+    -webkit-box-orient: vertical;
+}
+
+.testimonial-custom .customer-info {
+    padding-top: 15px;
+    margin-top: 15px;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.testimonial-custom .customer-info img {
+    width: 50px !important;
+    height: 80px !important;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.testimonial-custom .customer-name {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.testimonial-custom .customer-role {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Slick slider dot customization for testimonials */
+.testimonials-slider .slick-dots {
+    bottom: -50px;
+}
+
+.testimonials-slider .slick-dots li button:before {
+    color: #D9D9D9;
+    font-size: 12px;
+}
+
+.testimonials-slider .slick-dots li.slick-active button:before {
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .testimonial-custom {
+        height: 300px; /* Slightly taller on tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonials-slider {
+        padding: 0 5px;
+    }
+    
+    .testimonials-slider .slick-slide {
+        padding: 0 5px;
+    }
+    
+    .testimonials-slider .slick-list {
+        margin: 0 -5px;
+    }
+    
+    .testimonial-custom {
+        height: 320px; /* Even taller on mobile for better readability */
+    }
+}
