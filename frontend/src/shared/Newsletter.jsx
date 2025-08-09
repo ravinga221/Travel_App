@@ -4,6 +4,11 @@ import { Container, Row, Col } from 'reactstrap'
 import maleTourist from '../assets/images/male-tourist.png'
 
 const Newsletter = () => {
+  const handleSubscribe = () => {
+    // Refresh the page when subscribe is clicked
+    window.location.reload();
+  }
+
   return (
     <section className='newsletter'>
         <Container>
@@ -15,7 +20,12 @@ const Newsletter = () => {
 
                         <div className="newsletter__input">
                             <input type="email" placeholder="Enter your email" />
-                            <button className="btn newsletter__btn">Subscribe</button>
+                            <button 
+                                className="btn newsletter__btn" 
+                                onClick={handleSubscribe}
+                            >
+                                Subscribe
+                            </button>
                         </div>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
